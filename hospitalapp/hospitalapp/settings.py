@@ -47,7 +47,21 @@ INSTALLED_APPS = [
     'oauth2_provider'
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'oauth2_provider.contrib.rest_framework.OAuth2Authentication',
+    )
+}
+
 CKEDITOR_UPLOAD_PATH = "ckeditor/images/"
+
+# import cloudinary
+#
+# cloudinary.config(
+#     cloud_name="dl7nznxmw",
+#     api_key="591163832997788",
+#     api_secret="5sPkGYstzO__uUUnBbpMWNRWCLI"
+# )
 
 MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
@@ -97,6 +111,12 @@ DATABASES = {
     }
 }
 
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
+MEDIA_ROOT = '%s/hospital/static/' % BASE_DIR
+
 AUTH_USER_MODEL = 'hospital.User'
 
 # Password validation
@@ -139,3 +159,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# CLIENT_ID = 'hs29Jbt2z65Cw7BNNkgGmWSkmizzb9lqz2J12j7l'
+# CLIENT_SECRET = '9GiV0nyUcj6VbWFuePkcTPAU0Kkz4mD88exFnCzQ5sK2ac0ybE5opS7H9xvKh4cxnAOfjMQV5yCdYwADdOTAtYFCpfZOCMLMq87pss0U5H88d5PMmqs3WMyA40Mab8HF'

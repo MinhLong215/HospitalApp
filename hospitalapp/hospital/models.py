@@ -40,7 +40,7 @@ class Appointment(models.Model):
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     scheduled_time = models.DateTimeField() #lịch khám
-    symptoms = models.TextField()  # triệu chứng
+    symptoms = RichTextField()  # triệu chứng
     type_of_disease = models.CharField(max_length=100) #loại bệnh
     is_confirmed = models.BooleanField(default=False) #boolean xác nhận
 
@@ -49,13 +49,13 @@ class Appointment(models.Model):
 class Prescription(models.Model):
     appointment = models.OneToOneField(Appointment, on_delete=models.CASCADE, related_name='prescription') #lịch khám
     diagnosis = models.CharField(max_length=100) #kết luận/chẩn đoán
-    precepts = models.TextField() #lời dặn
+    precepts = RichTextField() #lời dặn
     medications = models.ManyToManyField('Medication', related_name='prescriptions')#danh mục thuốc uống
 
 #Thuốc
 class Medication(models.Model):
     name = models.CharField(max_length=100, null=False) #tên thuốc
-    description = RichTextField() #miêu tả
+    description = models.TextField() #miêu tả
     image = models.ImageField(upload_to='medications/%Y/%m') #ảnh
     # Thêm các trường khác tương ứng với thông tin của thuốc
 
