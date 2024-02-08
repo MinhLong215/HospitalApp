@@ -47,7 +47,10 @@ INSTALLED_APPS = [
     'oauth2_provider'
 ]
 
+CKEDITOR_UPLOAD_PATH = "ckeditor/images/"
+
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -94,6 +97,7 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = 'hospital.User'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
