@@ -1,8 +1,22 @@
 from django.contrib import admin
 from django.utils.html import mark_safe
-from .models import Appointment, Prescription, Medication
+from .models import Appointment, Prescription, Medication, Doctor, Nurse, Patient, User
 from django import forms
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
+
+class HospitalAppAdminSite(admin.AdminSite):
+    site_header = 'Clinic Management System'
+
+    # def get_urls(self):
+    #     return [
+    #         path('course-stats/', self.stats_view)
+    #     ] + super().get_urls()
+
+    # def stats_view(self, request): //dùng làm báo cáo thống kê
+        #pass
+
+admin_site = HospitalAppAdminSite(name='myhospitalapp')
+
 
 # class MedicationForm(forms.ModelForm):
 #     content = forms.CharField(widget=CKEditorUploadingWidget)
@@ -34,6 +48,10 @@ class MedicationAdmin(admin.ModelAdmin):
         }
 
 # Register your models here.
-admin.site.register(Appointment, AppointmentAdmin)
-admin.site.register(Prescription, PrescriptionAdmin)
-admin.site.register(Medication, MedicationAdmin)
+admin_site.register(Appointment, AppointmentAdmin)
+admin_site.register(Prescription, PrescriptionAdmin)
+admin_site.register(Medication, MedicationAdmin)
+admin_site.register(Doctor)
+admin_site.register(Nurse)
+admin_site.register(Patient)
+admin_site.register(User)

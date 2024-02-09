@@ -9,7 +9,6 @@ from ckeditor.fields import RichTextField
 
 class User(AbstractUser):
     USER_TYPE_CHOICES = (
-        ('admin', 'Admin'),
         ('doctor', 'Doctor'),
         ('nurse', 'Nurse'),
         ('patient', 'Patient'),
@@ -23,6 +22,9 @@ class User(AbstractUser):
 class Doctor(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='doctor_profile')
     specialization = models.CharField(max_length=100)#chuyên môn
+
+    def __str__(self):
+        return self.user
 
 #Y Tá
 class Nurse(models.Model):
