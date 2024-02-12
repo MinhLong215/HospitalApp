@@ -55,13 +55,13 @@ REST_FRAMEWORK = {
 
 CKEDITOR_UPLOAD_PATH = "ckeditor/images/"
 
-# import cloudinary
-#
-# cloudinary.config(
-#     cloud_name="dl7nznxmw",
-#     api_key="591163832997788",
-#     api_secret="5sPkGYstzO__uUUnBbpMWNRWCLI"
-# )
+import cloudinary
+
+cloudinary.config(
+    cloud_name="dl7nznxmw",
+    api_key="591163832997788",
+    api_secret="5sPkGYstzO__uUUnBbpMWNRWCLI"
+)
 
 MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
@@ -160,9 +160,9 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CLIENT_ID = 'hs29Jbt2z65Cw7BNNkgGmWSkmizzb9lqz2J12j7l'
-# CLIENT_SECRET = '9GiV0nyUcj6VbWFuePkcTPAU0Kkz4mD88exFnCzQ5sK2ac0ybE5opS7H9xvKh4cxnAOfjMQV5yCdYwADdOTAtYFCpfZOCMLMq87pss0U5H88d5PMmqs3WMyA40Mab8HF'
+CLIENT_ID = 'hs29Jbt2z65Cw7BNNkgGmWSkmizzb9lqz2J12j7l'
+CLIENT_SECRET = '9GiV0nyUcj6VbWFuePkcTPAU0Kkz4mD88exFnCzQ5sK2ac0ybE5opS7H9xvKh4cxnAOfjMQV5yCdYwADdOTAtYFCpfZOCMLMq87pss0U5H88d5PMmqs3WMyA40Mab8HF'
 
-# OAUTH2_PROVIDER = {
-#     'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore'
-# }
+OAUTH2_PROVIDER = {
+    'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore'
+}

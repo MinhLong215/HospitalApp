@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "MyHospitalMobileApp",
+    "slug": "MyHospitalMobileApp",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "MyHospitalMobileApp"
+}
