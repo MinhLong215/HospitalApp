@@ -8,13 +8,14 @@ export default StyleSheet.create({
         marginBottom: 5,
         marginTop: 5,
         backgroundColor: "lightgray"
-    }
-    // }, button: {
-    //     textAlign: "center",
-    //     backgroundColor: "darkblue",
-    //     color: "white",
-    //     padding: 10
-    // }, avatar: {
+    },
+    button: {
+        textAlign: "center",
+        backgroundColor: "darkblue",
+        color: "white",
+        padding: 10
+    }, 
+    // avatar: {
     //     width: 80,
     //     height: 80,
     //     margin: 5

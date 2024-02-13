@@ -9,7 +9,7 @@ import MyStyles from "../../styles/MyStyles";
 const Home = () => {
     return (
         <View style={MyStyles.container}>
-            <Text style={MyStyles.subject}>DANH MỤC KHOÁ HỌC</Text>
+            <Text style={MyStyles.subject}>TRANG CHỦ</Text>
         </View>
     );
 }

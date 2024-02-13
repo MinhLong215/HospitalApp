@@ -5,6 +5,8 @@ import Login from './components/User/Login';
 import MyContext from './configs/MyContext';
 import { useReducer } from 'react';
 import MyUserReducer from './reducers/MyUserReducer';
+import { Header } from 'react-native/Libraries/NewAppScreen';
+import Logout from './components/User/Logout';
 
 const Drawer = createDrawerNavigator();
 
@@ -14,9 +16,14 @@ const App = () => {
   return(
     <MyContext.Provider value={[user, dispatch]}>
       <NavigationContainer>
-        <Drawer.Navigator>
+        <Drawer.Navigator screenOptions={{headerRight: Logout}}>
           <Drawer.Screen name="Home" component={Home} options={{title: 'Trang chủ'}}/>
-          <Drawer.Screen name="Login" component={Login} options={{title: 'Đăng nhập'}}/>
+
+          {user===null?<>
+            <Drawer.Screen name="Login" component={Login} options={{title: 'Đăng nhập'}}/>
+          </>:<>
+            <Drawer.Screen name={user.username} component={Home} />
+          </>}
         </Drawer.Navigator>
       </NavigationContainer>
     </MyContext.Provider>

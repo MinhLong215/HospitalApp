@@ -44,8 +44,16 @@ class Patient(models.Model):
     def __str__(self):
         return self.user.username
 
+class BaseModel(models.Model):
+    created_date = models.DateField(auto_now_add=True, null=True)
+    updated_date = models.DateField(auto_now=True, null=True)
+    active = models.BooleanField(default=True)
+
+    class Meta:
+        abstract = True
+
 #lịch trực
-class DutySchedule(models.Model):
+class DutySchedule(BaseModel):
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='duty_schedules_doctor')
     nurse = models.ForeignKey(Nurse, on_delete=models.CASCADE, related_name='duty_schedules_nurse')
     start_time = models.DateTimeField()
@@ -56,7 +64,7 @@ class DutySchedule(models.Model):
 
 
 #Lịch Khám
-class Appointment(models.Model):
+class Appointment(BaseModel):
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     scheduled_time = models.DateTimeField() #lịch khám
@@ -68,7 +76,7 @@ class Appointment(models.Model):
         return f"Appointment: Doctor - {str(self.doctor.user)}, Patient - {str(self.patient.user)}, Scheduled Time: {self.scheduled_time.strftime('%Y-%m-%d %H:%M')}"
 
 #Toa Thuốc
-class Prescription(models.Model):
+class Prescription(BaseModel):
     appointment = models.OneToOneField(Appointment, on_delete=models.CASCADE, related_name='prescription') #lịch khám
     diagnosis = models.CharField(max_length=100) #kết luận/chẩn đoán
     precepts = RichTextField() #lời dặn
@@ -83,7 +91,7 @@ class Prescription(models.Model):
 
 
 #Thuốc
-class Medication(models.Model):
+class Medication(BaseModel):
     name = models.CharField(max_length=100, null=False) #tên thuốc
     description = models.TextField() #miêu tả
     image = models.ImageField(upload_to='medications/%Y/%m') #ảnh
@@ -93,7 +101,7 @@ class Medication(models.Model):
         return self.name
 
 #Hóa Đơn
-class Payment(models.Model):
+class Payment(BaseModel):
     patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
     amount = models.DecimalField(max_digits=10, decimal_places=2)#tien kham
     prescription = models.OneToOneField(Prescription, on_delete=models.CASCADE)#chi phí toa thuốc
