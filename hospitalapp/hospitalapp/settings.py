@@ -163,6 +163,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CLIENT_ID = 'Yybp9Jtk4W8oByYuVnGL4bfdmIk6iKJX4Qgubp7L'
 CLIENT_SECRET = 'WnEiWm72c5mguFMyKoDk6bTlLYkZw9vit6AMo9tRfxN6tOvohk08h0ioskEoLJ0Sp3YEnDl0Z1E7872Zaj20cyKXwLqO012NOAeobsFyFbb4AjA3C6TKmbSrFHXXdOwh'
 
-OAUTH2_PROVIDER = {
-    'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore'
-}
+# OAUTH2_PROVIDER = {
+#     'OAUTH2_BACKEND_CLASS': 'oauth2_provider.oauth2_backends.JSONOAuthLibCore'
+# }
